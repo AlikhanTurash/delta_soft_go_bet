@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "374121011897",
+    "project_id": "deltasoftbet",
+    "storage_bucket": "deltasoftbet.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:374121011897:android:d923315d8d66dd55815968",
+        "android_client_info": {
+          "package_name": "com.example.gobet"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "374121011897-ni505ou5uaqh4tt7vlpqdpps9jaoc3sv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBWwF-_uCA2Q8QtRVk-If2PcBgMG24I5VM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "374121011897-ni505ou5uaqh4tt7vlpqdpps9jaoc3sv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
