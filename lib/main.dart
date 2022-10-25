@@ -1,5 +1,4 @@
 import 'dart:convert';
-
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_remote_config/firebase_remote_config.dart';
 import 'package:flutter/material.dart';
@@ -62,9 +61,7 @@ LoadFire(
   print(brandDevice);
   print(simDevice);
 
-  if (getUrl.isEmpty ||
-      brandDevice.contains('googvdvdsvle') ||
-      simDevice == 'vffdg') {
+  if (getUrl.isEmpty || brandDevice.contains('google') || simDevice == '') {
     // if (false) {
     return SplashScreen();
   } else {
