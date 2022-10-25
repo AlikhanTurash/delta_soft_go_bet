@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "374121011897",
-    "project_id": "deltasoftbet",
-    "storage_bucket": "deltasoftbet.appspot.com"
+    "project_number": "365454312753",
+    "project_id": "alirash-26f7f",
+    "storage_bucket": "alirash-26f7f.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:374121011897:android:d923315d8d66dd55815968",
+        "mobilesdk_app_id": "1:365454312753:android:f2bf5d55360b6ef9cb9c10",
         "android_client_info": {
-          "package_name": "com.example.gobet"
+          "package_name": "vetmelbet.statep"
         }
       },
       "oauth_client": [
         {
-          "client_id": "374121011897-ni505ou5uaqh4tt7vlpqdpps9jaoc3sv.apps.googleusercontent.com",
+          "client_id": "365454312753-qk4v06bu4e9dd3vb0rvddnodu3ak4sqq.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBWwF-_uCA2Q8QtRVk-If2PcBgMG24I5VM"
+          "current_key": "AIzaSyACv39ztSAbJuzsMqpXkcdYHfVNmOl2qLg"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "374121011897-ni505ou5uaqh4tt7vlpqdpps9jaoc3sv.apps.googleusercontent.com",
+              "client_id": "365454312753-qk4v06bu4e9dd3vb0rvddnodu3ak4sqq.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

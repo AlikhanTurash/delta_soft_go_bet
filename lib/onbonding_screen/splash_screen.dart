@@ -41,7 +41,7 @@ class _SplashScreenState extends State<SplashScreen> {
                       color: Colors.transparent,
                       height: MediaQuery.of(context).size.height / 3,
                       width: MediaQuery.of(context).size.width / 2,
-                      child: Image.asset("image/batting app icon.png")))),
+                      child: Image.asset("image/logo.png")))),
         );
       },
     );

@@ -44,7 +44,7 @@ dependencies:
   shared_preferences: ^2.0.13
   provider: ^6.0.2
   page_transition: ^2.0.5
-  flutter_launcher_name: ^0.0.1
+#  flutter_launcher_name: ^0.0.1
   firebase_remote_config: ^3.0.2
   firebase_core: ^2.1.0
   firebase_analytics: ^10.0.2
@@ -53,16 +53,16 @@ dependencies:
   sim_data: ^0.0.2
 
 dev_dependencies:
-#  flutter_launcher_icons: ^0.10.0
+  flutter_launcher_icons: ^0.10.0
   flutter_test:
     sdk: flutter
-flutter_launcher_name:
-  name: "Delta Soft Bet"
+#flutter_launcher_name:
+#  name: "Мелбет"
 
-#flutter_icons:
-#  image_path: "image/batting app icon.png"
-#  android: true
-#  ios: true
+flutter_icons:
+  image_path: "image/logo.png"
+  android: true
+  ios: true
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
