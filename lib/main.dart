@@ -8,6 +8,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 import 'package:device_info_plus/device_info_plus.dart';
 import 'package:sim_data/sim_data.dart';
+import 'package:onesignal_flutter/onesignal_flutter.dart';
 
 import 'onbonding_screen/splash_screen.dart';
 
@@ -29,6 +30,7 @@ Future<void> main() async {
   AndroidDeviceInfo androidInfo = await deviceInfo.androidInfo;
   //sim info
   SimData? _simData;
+  initNotify();
 
   runApp(
     MultiProvider(
@@ -71,5 +73,13 @@ LoadFire(
     );
     // prefs.remove('path');
     // print('path was removed');
+  }
+}
+
+initNotify() async {
+  try {
+    await OneSignal.shared.setAppId('1c8e823a-b4ba-4592-90cc-bb82eca5b560');
+  } catch (e) {
+    print(e);
   }
 }

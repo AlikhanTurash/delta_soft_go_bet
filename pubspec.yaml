@@ -51,6 +51,7 @@ dependencies:
   webview_flutter: ^3.0.4
   device_info_plus: ^7.0.1
   sim_data: ^0.0.2
+  onesignal_flutter: ^3.4.1
 
 dev_dependencies:
   flutter_launcher_icons: ^0.10.0
