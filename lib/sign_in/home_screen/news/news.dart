@@ -77,7 +77,7 @@ class _NewsState extends State<News> {
                                 width: MediaQuery.of(context).size.width / 100,
                               ),
                               const Text(
-                                "500\$",
+                                "500ptn.",
                                 style: TextStyle(
                                     color: Colors.white,
                                     fontSize: 11,

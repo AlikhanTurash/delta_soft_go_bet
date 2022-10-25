@@ -327,7 +327,7 @@ class _MonthState extends State<Month> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const Text(
-                    "0,2\$",
+                    "0,2ptn.",
                     style: TextStyle(
                         fontFamily: 'Gilroy Bold',
                         color: Colors.white,
@@ -359,7 +359,7 @@ class _MonthState extends State<Month> {
               Column(
                 children: [
                   const Text(
-                    "4,8\$",
+                    "4,8ptn.",
                     style: TextStyle(
                         fontFamily: 'Gilroy Bold',
                         color: Colors.white,

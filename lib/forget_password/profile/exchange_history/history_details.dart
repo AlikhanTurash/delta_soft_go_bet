@@ -78,7 +78,7 @@ class _History_detailsState extends State<History_details> {
                     ),
                     //SizedBox(height: MediaQuery.of(context).size.height / 200,),
                     Text(
-                      "\$15 GIFT CARD",
+                      "ptn.15 GIFT CARD",
                       style: TextStyle(
                           fontFamily: 'Gilroy Medium',
                           color: notifire.getgrey,
@@ -102,7 +102,7 @@ class _History_detailsState extends State<History_details> {
               height: MediaQuery.of(context).size.height / 60,
             ),
             const Text(
-              "\$ 15.00",
+              "ptn. 15.00",
               style: TextStyle(
                   color: Color(0xffF3CA41),
                   fontSize: 15,

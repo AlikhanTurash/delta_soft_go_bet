@@ -76,7 +76,7 @@ class _MatchesState extends State<Matches> {
                                           100,
                                     ),
                                     const Text(
-                                      "500\$",
+                                      "500ptn.",
                                       style: TextStyle(
                                           color: Colors.white,
                                           fontSize: 11,
@@ -93,7 +93,7 @@ class _MatchesState extends State<Matches> {
                         ],
                       ),
                       const Text(
-                        "Bet with Delta Soft",
+                        "Bet with MelBet",
                         style: TextStyle(
                           fontFamily: 'Gilroy Bold',
                           color: Color(0xffe7e8ea),

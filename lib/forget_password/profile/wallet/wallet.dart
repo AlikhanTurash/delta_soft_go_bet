@@ -80,7 +80,7 @@ class _WalletState extends State<Wallet> {
                   Container(
                       color: Colors.transparent,
                       child: Text(
-                        "+\$4,689.00",
+                        "4,689.00 points",
                         style: TextStyle(
                             color: notifire.getwhite,
                             fontSize: 30,

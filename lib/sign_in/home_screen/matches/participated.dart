@@ -32,31 +32,31 @@ class _ParticipatedState extends State<Participated> {
               SizedBox(
                 height: MediaQuery.of(context).size.height / 30,
               ),
-              Users("Shane Jimenez", "\$99.00"),
+              Users("Shane Jimenez", "ptn.99.00"),
               SizedBox(
                 height: MediaQuery.of(context).size.height / 30,
               ),
-              Users("Hazel Meyer", "\$90.00"),
+              Users("Hazel Meyer", "ptn.90.00"),
               SizedBox(
                 height: MediaQuery.of(context).size.height / 30,
               ),
-              Users("Adam Horton", "\$86.00"),
+              Users("Adam Horton", "ptn.86.00"),
               SizedBox(
                 height: MediaQuery.of(context).size.height / 30,
               ),
-              Users("Wade Ramos", "\$12.00"),
+              Users("Wade Ramos", "ptn.12.00"),
               SizedBox(
                 height: MediaQuery.of(context).size.height / 30,
               ),
-              Users("Neil Coleman", "\$32.00"),
+              Users("Neil Coleman", "ptn.32.00"),
               SizedBox(
                 height: MediaQuery.of(context).size.height / 30,
               ),
-              Users("Kay Gibson", "\$39.00"),
+              Users("Kay Gibson", "ptn.39.00"),
               SizedBox(
                 height: MediaQuery.of(context).size.height / 30,
               ),
-              Users("Ollie Adams", "\$99.00"),
+              Users("Ollie Adams", "ptn.99.00"),
               SizedBox(
                 height: MediaQuery.of(context).size.height / 30,
               ),

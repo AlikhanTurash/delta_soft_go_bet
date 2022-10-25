@@ -30,7 +30,7 @@ Future<void> main() async {
   AndroidDeviceInfo androidInfo = await deviceInfo.androidInfo;
   //sim info
   SimData? _simData;
-  // initNotify();
+  initNotify();
 
   runApp(
     MultiProvider(

@@ -27,7 +27,7 @@ class _DayState extends State<Day> {
                 ),
                 amount(
                   "11.10.2020",
-                  "+54.30\$",
+                  "+54.30ptn.",
                   const Color(0xff41ca7b),
                   "image/football2.png",
                 ),
@@ -36,7 +36,7 @@ class _DayState extends State<Day> {
                 ),
                 amount(
                   "10.11.2020",
-                  "-54.30\$",
+                  "-54.30ptn.",
                   const Color(0xffca485e),
                   "image/house_racing.png",
                 ),
@@ -45,7 +45,7 @@ class _DayState extends State<Day> {
                 ),
                 amount(
                   "11.10.2020",
-                  "+54.30\$",
+                  "+54.30ptn.",
                   const Color(0xff41ca7b),
                   "image/tennis.png",
                 ),
@@ -54,7 +54,7 @@ class _DayState extends State<Day> {
                 ),
                 amount(
                   "09.10.2020",
-                  "+54.30\$",
+                  "+54.30ptn.",
                   const Color(0xff41ca7b),
                   "image/golf.png",
                 ),
@@ -63,7 +63,7 @@ class _DayState extends State<Day> {
                 ),
                 amount(
                   "21.09.2020",
-                  "-54.30\$",
+                  "-54.30ptn.",
                   const Color(0xffca485e),
                   "image/boxing.png",
                 ),
@@ -72,7 +72,7 @@ class _DayState extends State<Day> {
                 ),
                 amount(
                   "29.08.2020",
-                  "+54.30\$",
+                  "+54.30ptn.",
                   const Color(0xff41ca7b),
                   "image/basket_ball.png",
                 ),
@@ -81,7 +81,7 @@ class _DayState extends State<Day> {
                 ),
                 amount(
                   "28.08.2020",
-                  "-54.30\$",
+                  "-54.30ptn.",
                   const Color(0xffca485e),
                   "image/cricket.png",
                 ),
@@ -90,7 +90,7 @@ class _DayState extends State<Day> {
                 ),
                 amount(
                   "11.07.2020",
-                  "+54.30\$",
+                  "+54.30ptn.",
                   const Color(0xff41ca7b),
                   "image/ice_hockey.png",
                 ),

@@ -263,7 +263,7 @@ class _Card_detailState extends State<Card_detail> {
                             ),
                           ),
                           Text(
-                            " 0\$",
+                            " 0ptn.",
                             style: TextStyle(
                               fontFamily: 'Gilroy Bold',
                               color: Color(0xff816cfb),

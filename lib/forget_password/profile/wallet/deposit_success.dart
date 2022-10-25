@@ -54,7 +54,7 @@ class _Deposit_successState extends State<Deposit_success> {
               height: MediaQuery.of(context).size.height / 50,
             ),
             const Text(
-              "\$ 4.000",
+              "ptn. 4.000",
               style: TextStyle(
                   color: Color(0xffF3CA41),
                   fontSize: 20,

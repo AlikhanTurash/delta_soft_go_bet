@@ -269,7 +269,7 @@ class _Refill_balanceState extends State<Refill_balance> {
                             ),
                           ),
                           Text(
-                            " 0\$",
+                            " 0ptn.",
                             style: TextStyle(
                               color: Color(0xff816cfb),
                               fontSize: 15,

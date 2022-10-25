@@ -72,7 +72,7 @@ class _Live_matchState extends State<Live_match> {
                             width: MediaQuery.of(context).size.width / 100,
                           ),
                           const Text(
-                            "500\$",
+                            "500ptn.",
                             style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 11,
@@ -474,7 +474,7 @@ class _Live_matchState extends State<Live_match> {
               height: MediaQuery.of(context).size.height / 15,
             ),
             const Text(
-              "\$ 120.00",
+              "ptn. 120.00",
               style: TextStyle(
                   color: Color(0xfffaf9fb),
                   fontSize: 25,
@@ -504,7 +504,7 @@ class _Live_matchState extends State<Live_match> {
                             TextStyle(color: Color(0xffa4baf0), fontSize: 11),
                       ),
                       Text(
-                        "\$750",
+                        "ptn.750",
                         style: TextStyle(
                             color: Color(0xffa4baf0),
                             fontSize: 15,
@@ -521,7 +521,7 @@ class _Live_matchState extends State<Live_match> {
                             TextStyle(color: Color(0xffa4baf0), fontSize: 11),
                       ),
                       Text(
-                        "\$24535",
+                        "ptn.24535",
                         style: TextStyle(
                             color: Color(0xffa4baf0),
                             fontSize: 15,
@@ -566,7 +566,7 @@ class _Live_matchState extends State<Live_match> {
                       ),
                       child: const Center(
                         child: Text(
-                          "Bet \$120",
+                          "Bet ptn.120",
                           style: TextStyle(
                               color: Color(0xffe2e3e9),
                               fontWeight: FontWeight.bold,
