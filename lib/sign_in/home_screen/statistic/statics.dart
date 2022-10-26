@@ -81,7 +81,7 @@ class _StaticsState extends State<Statics> {
                                           100,
                                     ),
                                     const Text(
-                                      "500ptn.",
+                                      "500pts.",
                                       style: TextStyle(
                                           color: Colors.white,
                                           fontSize: 11,

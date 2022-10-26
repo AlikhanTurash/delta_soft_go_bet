@@ -82,7 +82,7 @@ class _FinishedState extends State<Finished> {
                                     "0",
                                     "5 mins",
                                     Colors.yellow,
-                                    "+ptn.10",
+                                    "+10pts.",
                                     "image/win copy.png"),
                                 SizedBox(
                                   height:
@@ -172,7 +172,7 @@ class _FinishedState extends State<Finished> {
                                     "2",
                                     "5 mins",
                                     Colors.pinkAccent,
-                                    "+ptn.10",
+                                    "+10pts.",
                                     "image/win copy.png"),
                                 SizedBox(
                                   height:
@@ -188,7 +188,7 @@ class _FinishedState extends State<Finished> {
                                   "3",
                                   "Fri, April 04",
                                   Colors.yellowAccent,
-                                  "+ptn.10",
+                                  "+10pts.",
                                   "image/win copy.png",
                                 ),
                                 SizedBox(

@@ -76,7 +76,7 @@ class _MatchesState extends State<Matches> {
                                           100,
                                     ),
                                     const Text(
-                                      "500ptn.",
+                                      "500pts.",
                                       style: TextStyle(
                                           color: Colors.white,
                                           fontSize: 11,
@@ -283,7 +283,7 @@ class _MatchesState extends State<Matches> {
                           Tab(
                             child: Container(
                               height: MediaQuery.of(context).size.height / 19,
-                              width: MediaQuery.of(context).size.width / 3.8,
+                              width: MediaQuery.of(context).size.width / 3.4,
                               decoration: BoxDecoration(
                                 border: Border.all(color: Color(0xff8f94b0)),
                                 borderRadius: const BorderRadius.all(
@@ -312,7 +312,7 @@ class _MatchesState extends State<Matches> {
                                                 70,
                                       ),
                                       const Text(
-                                        "Up coming",
+                                        "Upcoming",
                                         style: TextStyle(
                                             color: Color(0xffe2e3e9),
                                             fontFamily: 'Gilroy Medium',

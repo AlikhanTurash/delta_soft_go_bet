@@ -327,7 +327,7 @@ class _Fl_chatState extends State<Fl_chat> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const Text(
-                    "0,2ptn.",
+                    "0,2pts.",
                     style: TextStyle(
                         fontFamily: 'Gilroy Bold',
                         color: Colors.white,
@@ -359,7 +359,7 @@ class _Fl_chatState extends State<Fl_chat> {
               Column(
                 children: [
                   const Text(
-                    "4,8ptn.",
+                    "4,8pts.",
                     style: TextStyle(
                         fontFamily: 'Gilroy Bold',
                         color: Colors.white,

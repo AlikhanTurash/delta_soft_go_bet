@@ -72,7 +72,7 @@ class _Live_matchState extends State<Live_match> {
                             width: MediaQuery.of(context).size.width / 100,
                           ),
                           const Text(
-                            "500ptn.",
+                            "500pts.",
                             style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 11,
@@ -474,7 +474,7 @@ class _Live_matchState extends State<Live_match> {
               height: MediaQuery.of(context).size.height / 15,
             ),
             const Text(
-              "ptn. 120.00",
+              "120.00pts.",
               style: TextStyle(
                   color: Color(0xfffaf9fb),
                   fontSize: 25,
@@ -504,7 +504,7 @@ class _Live_matchState extends State<Live_match> {
                             TextStyle(color: Color(0xffa4baf0), fontSize: 11),
                       ),
                       Text(
-                        "ptn.750",
+                        "750pts.",
                         style: TextStyle(
                             color: Color(0xffa4baf0),
                             fontSize: 15,
@@ -521,7 +521,7 @@ class _Live_matchState extends State<Live_match> {
                             TextStyle(color: Color(0xffa4baf0), fontSize: 11),
                       ),
                       Text(
-                        "ptn.24535",
+                        "24535pts.",
                         style: TextStyle(
                             color: Color(0xffa4baf0),
                             fontSize: 15,
@@ -566,7 +566,7 @@ class _Live_matchState extends State<Live_match> {
                       ),
                       child: const Center(
                         child: Text(
-                          "Bet ptn.120",
+                          "Bet 120pts.",
                           style: TextStyle(
                               color: Color(0xffe2e3e9),
                               fontWeight: FontWeight.bold,

@@ -96,7 +96,7 @@ class _SportsState extends State<Sports> {
                                         MediaQuery.of(context).size.width / 100,
                                   ),
                                   const Text(
-                                    "500ptn.",
+                                    "500pts.",
                                     style: TextStyle(
                                         color: Colors.white,
                                         fontSize: 11,

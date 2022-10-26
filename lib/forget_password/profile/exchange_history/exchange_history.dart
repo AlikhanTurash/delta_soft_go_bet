@@ -62,12 +62,12 @@ class _Exchange_historyState extends State<Exchange_history> {
               height: MediaQuery.of(context).size.height / 20,
             ),
             history("ZPlay Card", "image/h1.png", "10:02 - Aug 17, 2018",
-                "ptn.15 GIFT CARD"),
+                "15pts. GIFT CARD"),
             SizedBox(
               height: MediaQuery.of(context).size.height / 30,
             ),
             history("ZPlay Game Card", "image/h2.png", "12:02 - Aug 29, 2018",
-                "ptn.15 GIFT CARD"),
+                "15pts. GIFT CARD"),
             SizedBox(
               height: MediaQuery.of(context).size.height / 30,
             ),
@@ -164,7 +164,7 @@ class _Exchange_historyState extends State<Exchange_history> {
                         height: MediaQuery.of(context).size.height / 20,
                       ),
                       const Text(
-                        "-ptn.15.00",
+                        "-15.00pts.",
                         style: TextStyle(
                             color: Color(0xffF3CA41),
                             fontFamily: 'Gilroy Medium',

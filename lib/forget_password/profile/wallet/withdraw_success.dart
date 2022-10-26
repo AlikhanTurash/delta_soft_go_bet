@@ -53,7 +53,7 @@ class _Withdraw_successState extends State<Withdraw_success> {
               ),
             ),
             const Text(
-              "ptn. 25.00",
+              "25.00pts.",
               style: TextStyle(
                   color: Color(0xffF3CA41),
                   fontSize: 20,
@@ -68,7 +68,7 @@ class _Withdraw_successState extends State<Withdraw_success> {
               child: Column(
                 children: [
                   Text(
-                    "You have successfully Withdraw ptn. 25 into ",
+                    "You have successfully Withdraw 25pts. into ",
                     style: TextStyle(
                       color: notifire.getwhite,
                     ),
