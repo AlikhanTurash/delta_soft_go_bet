@@ -9,18 +9,15 @@ import 'package:webview_flutter/webview_flutter.dart';
 import 'package:device_info_plus/device_info_plus.dart';
 import 'package:onesignal_flutter/onesignal_flutter.dart';
 import 'package:flutter_sim_country_code/flutter_sim_country_code.dart';
+import './onbonding_screen/webview.dart';
 
 import 'onbonding_screen/splash_screen.dart';
 
 Future<void> main() async {
   //Firebase remote config settings
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  await Firebase.initializeApp();
   final remoteConfig = FirebaseRemoteConfig.instance;
-  await remoteConfig.setConfigSettings(RemoteConfigSettings(
-    fetchTimeout: const Duration(minutes: 1),
-    minimumFetchInterval: const Duration(hours: 1),
-  ));
   await remoteConfig.fetchAndActivate();
   //saved variable
   final prefs = await SharedPreferences.getInstance();
@@ -31,6 +28,9 @@ Future<void> main() async {
   initNotify();
   String countryCode = 'none';
   countryCode = await FlutterSimCountryCode.simCountryCode as String;
+  print('app initialized');
+  WebViewController? _controller;
+  String url = await remoteConfig.getString('url');
 
   runApp(
     MultiProvider(
@@ -39,12 +39,29 @@ Future<void> main() async {
       ],
       child: MaterialApp(
         home: path?.isEmpty ?? true
-            ? LoadFire(remoteConfig.getString('url'), androidInfo.brand,
-                countryCode, prefs, androidInfo.isPhysicalDevice)
+            ? LoadFire(
+                url,
+                androidInfo.brand,
+                countryCode,
+                prefs,
+                androidInfo.isPhysicalDevice,
+              )
             // : LoadFire(remoteConfig.getString('url'), androidInfo.brand,
             //     SimDataPlugin.getSimData().toString(), prefs),
-            : WebView(
-                initialUrl: path,
+            : WillPopScope(
+                onWillPop: () async {
+                  if (await _controller!.canGoBack()) {
+                    _controller!.goBack();
+                  }
+                  return false;
+                },
+                child: WebView(
+                  initialUrl: path,
+                  javascriptMode: JavascriptMode.unrestricted,
+                  onWebViewCreated: (WebViewController webViewController) {
+                    _controller = webViewController;
+                  },
+                ),
               ),
         debugShowCheckedModeBanner: false,
       ),
@@ -52,8 +69,14 @@ Future<void> main() async {
   );
 }
 
-LoadFire(String url, String brand, String? getCountryCode,
-    SharedPreferences prefs, bool isPhysicalDevice) {
+LoadFire(
+  String url,
+  String brand,
+  String? getCountryCode,
+  SharedPreferences prefs,
+  bool isPhysicalDevice,
+) {
+  WebViewController? _controller;
   String getUrl = url;
   String brandDevice = brand;
   String? countryCode = getCountryCode;
@@ -73,6 +96,10 @@ LoadFire(String url, String brand, String? getCountryCode,
     // print('path was saved');
     return WebView(
       initialUrl: url,
+      javascriptMode: JavascriptMode.unrestricted,
+      onWebViewCreated: (WebViewController webViewController) {
+        _controller = webViewController;
+      },
     );
     // prefs.remove('path');
     // print('path was removed');

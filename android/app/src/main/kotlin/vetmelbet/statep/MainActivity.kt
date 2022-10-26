@@ -1,4 +1,4 @@
-package com.vetmelbet.statep
+package vetmelbet.statep
 
 import io.flutter.embedding.android.FlutterActivity
 
