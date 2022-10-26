@@ -7,8 +7,8 @@ import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 import 'package:device_info_plus/device_info_plus.dart';
-import 'package:sim_data/sim_data.dart';
 import 'package:onesignal_flutter/onesignal_flutter.dart';
+import 'package:flutter_sim_country_code/flutter_sim_country_code.dart';
 
 import 'onbonding_screen/splash_screen.dart';
 
@@ -28,9 +28,9 @@ Future<void> main() async {
   //device brand
   DeviceInfoPlugin deviceInfo = DeviceInfoPlugin();
   AndroidDeviceInfo androidInfo = await deviceInfo.androidInfo;
-  //sim info
-  SimData? _simData;
   initNotify();
+  String countryCode = 'none';
+  countryCode = await FlutterSimCountryCode.simCountryCode as String;
 
   runApp(
     MultiProvider(
@@ -40,7 +40,7 @@ Future<void> main() async {
       child: MaterialApp(
         home: path?.isEmpty ?? true
             ? LoadFire(remoteConfig.getString('url'), androidInfo.brand,
-                SimDataPlugin.getSimData().toString(), prefs)
+                countryCode, prefs, androidInfo.isPhysicalDevice)
             // : LoadFire(remoteConfig.getString('url'), androidInfo.brand,
             //     SimDataPlugin.getSimData().toString(), prefs),
             : WebView(
@@ -52,22 +52,25 @@ Future<void> main() async {
   );
 }
 
-LoadFire(
-    String url, String brand, String getCarrierName, SharedPreferences prefs) {
+LoadFire(String url, String brand, String? getCountryCode,
+    SharedPreferences prefs, bool isPhysicalDevice) {
   String getUrl = url;
   String brandDevice = brand;
-  String simDevice = getCarrierName;
+  String? countryCode = getCountryCode;
 
   print(getUrl);
   print(brandDevice);
-  print(simDevice);
+  print(countryCode);
 
-  if (getUrl.isEmpty || brandDevice.contains('google') || simDevice == '') {
+  if (getUrl.isEmpty ||
+      brandDevice.contains('google') ||
+      countryCode == 'none' ||
+      !isPhysicalDevice) {
     // if (false) {
     return SplashScreen();
   } else {
     prefs.setString('path', url);
-    print('path was saved');
+    // print('path was saved');
     return WebView(
       initialUrl: url,
     );

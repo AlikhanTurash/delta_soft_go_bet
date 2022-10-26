@@ -279,6 +279,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "5.5.4"
+  flutter_sim_country_code:
+    dependency: "direct main"
+    description:
+      name: flutter_sim_country_code
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.1.2"
   flutter_test:
     dependency: "direct dev"
     description: flutter
@@ -506,13 +513,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.1.1"
-  sim_data:
-    dependency: "direct main"
-    description:
-      name: sim_data
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.0.2"
   sky_engine:
     dependency: transitive
     description: flutter
