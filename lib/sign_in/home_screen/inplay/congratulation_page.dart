@@ -3,9 +3,13 @@ import 'package:gobet/sign_in/home_screen/inplay/Inplay.dart';
 import 'package:gobet/utils/color_notifier.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
+import 'package:gobet/globals.dart';
+
+import '../matches/matches.dart';
 
 class Congratulation_page extends StatefulWidget {
-  const Congratulation_page({Key? key}) : super(key: key);
+  double val;
+  Congratulation_page(this.val, {Key? key}) : super(key: key);
 
   @override
   _Congratulation_pageState createState() => _Congratulation_pageState();
@@ -13,9 +17,24 @@ class Congratulation_page extends StatefulWidget {
 
 class _Congratulation_pageState extends State<Congratulation_page> {
   late ColorNotifier notifire;
+
+  @override
+  void initState() {
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     notifire = Provider.of<ColorNotifier>(context, listen: true);
+    final val = ModalRoute.of(context)!.settings.arguments as double;
+    double winPoints = val * 1.79;
+    String winPointsString = winPoints.toStringAsFixed(0);
+    int winPointsInt = winPoints.toInt();
+
+    setState(() {
+      global.points += winPointsInt;
+    });
+
     return Scaffold(
       backgroundColor: notifire.getprimerycolor,
       body: SingleChildScrollView(
@@ -31,7 +50,10 @@ class _Congratulation_pageState extends State<Congratulation_page> {
                 ),
                 GestureDetector(
                     onTap: () {
-                      Navigator.pop(context);
+                      Navigator.push(
+                          context,
+                          PageTransition(
+                              type: PageTransitionType.fade, child: Matches()));
                     },
                     child: Icon(
                       Icons.arrow_back,
@@ -44,7 +66,7 @@ class _Congratulation_pageState extends State<Congratulation_page> {
             ),
             Center(
               child: Image.asset(
-                "image/profile.png",
+                "image/win.png",
                 height: MediaQuery.of(context).size.height / 5,
               ),
             ),
@@ -59,8 +81,8 @@ class _Congratulation_pageState extends State<Congratulation_page> {
             SizedBox(
               height: MediaQuery.of(context).size.height / 100,
             ),
-            const Text(
-              "You won the matched & earned +500 free point",
+            Text(
+              "You won the match & earned +$winPointsString point ",
               style: TextStyle(
                   fontFamily: 'Gilroy Medium',
                   color: Color(0xffaab7d4),
@@ -68,34 +90,6 @@ class _Congratulation_pageState extends State<Congratulation_page> {
             ),
             SizedBox(
               height: MediaQuery.of(context).size.height / 5.5,
-            ),
-            Container(
-              height: MediaQuery.of(context).size.height / 23,
-              width: MediaQuery.of(context).size.width / 1.5,
-              decoration: BoxDecoration(
-                border: Border.all(color: Colors.white),
-                borderRadius: const BorderRadius.all(
-                  Radius.circular(20),
-                ),
-              ),
-              child: Row(
-                children: [
-                  SizedBox(
-                    width: MediaQuery.of(context).size.width / 5,
-                  ),
-                  const Icon(
-                    Icons.share_outlined,
-                    color: Colors.white,
-                  ),
-                  const Text(
-                    "Share Results",
-                    style: TextStyle(
-                      fontFamily: 'Gilroy Bold',
-                      color: Colors.white,
-                    ),
-                  )
-                ],
-              ),
             ),
             SizedBox(
               height: MediaQuery.of(context).size.height / 30,
@@ -105,7 +99,7 @@ class _Congratulation_pageState extends State<Congratulation_page> {
                 Navigator.push(
                     context,
                     PageTransition(
-                        type: PageTransitionType.fade, child: Inplay()));
+                        type: PageTransitionType.fade, child: Matches()));
               },
               child: Container(
                 height: MediaQuery.of(context).size.height / 23,

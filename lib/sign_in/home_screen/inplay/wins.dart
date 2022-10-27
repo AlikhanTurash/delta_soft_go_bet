@@ -33,6 +33,8 @@ class _WinsState extends State<Wins> {
     super.dispose();
   }
 
+  double val = 0;
+
   late ColorNotifier notifire;
   @override
   Widget build(BuildContext context) {
@@ -77,7 +79,8 @@ class _WinsState extends State<Wins> {
         Navigator.push(
             context,
             PageTransition(
-                type: PageTransitionType.fade, child: Congratulation_page()));
+                type: PageTransitionType.fade,
+                child: Congratulation_page(val)));
       },
       child: Container(
         height: MediaQuery.of(context).size.height / 4,

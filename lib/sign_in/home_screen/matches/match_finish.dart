@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:gobet/utils/color_notifier.dart';
+import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
+import 'package:gobet/globals.dart';
+
+import 'matches.dart';
 
 class Finish_match extends StatefulWidget {
   const Finish_match({Key? key}) : super(key: key);
@@ -11,9 +15,19 @@ class Finish_match extends StatefulWidget {
 
 class _Finish_matchState extends State<Finish_match> {
   late ColorNotifier notifire;
+
   @override
   Widget build(BuildContext context) {
     notifire = Provider.of<ColorNotifier>(context, listen: true);
+
+    final val = ModalRoute.of(context)!.settings.arguments as double;
+    String lostPointsString = val.toStringAsFixed(0);
+    int lostPointsInt = val.toInt();
+
+    setState(() {
+      global.points -= lostPointsInt;
+    });
+
     return Scaffold(
       backgroundColor: notifire.getprimerycolor,
       body: SingleChildScrollView(
@@ -24,7 +38,10 @@ class _Finish_matchState extends State<Finish_match> {
             ),
             GestureDetector(
               onTap: () {
-                Navigator.pop(context);
+                Navigator.push(
+                    context,
+                    PageTransition(
+                        type: PageTransitionType.fade, child: Matches()));
               },
               child: Row(
                 children: [
@@ -39,17 +56,14 @@ class _Finish_matchState extends State<Finish_match> {
               ),
             ),
             SizedBox(
-              height: MediaQuery.of(context).size.height / 4,
+              height: MediaQuery.of(context).size.height / 8,
             ),
-            Image.asset(
-              "image/rights.png",
-              height: MediaQuery.of(context).size.height / 5,
-            ),
+            Icon(Icons.close, color: Colors.red, size: 200),
             SizedBox(
               height: MediaQuery.of(context).size.height / 20,
             ),
             const Text(
-              "Success!",
+              "Sorry!",
               style: TextStyle(
                   color: Color(0xfff6f6f5),
                   fontSize: 30,
@@ -58,12 +72,8 @@ class _Finish_matchState extends State<Finish_match> {
             SizedBox(
               height: MediaQuery.of(context).size.height / 60,
             ),
-            const Text(
-              "Check the results in notifications",
-              style: TextStyle(color: Color(0xffe6eef7)),
-            ),
-            const Text(
-              "after finish the match.",
+            Text(
+              "You have lost $lostPointsString pts.",
               style: TextStyle(color: Color(0xffe6eef7)),
             ),
             SizedBox(
@@ -74,49 +84,65 @@ class _Finish_matchState extends State<Finish_match> {
                 SizedBox(
                   width: MediaQuery.of(context).size.width / 6,
                 ),
-                Container(
-                  height: MediaQuery.of(context).size.height / 23,
-                  width: MediaQuery.of(context).size.width / 1.7,
-                  decoration: const BoxDecoration(
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(20),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        PageTransition(
+                            type: PageTransitionType.fade, child: Matches()));
+                  },
+                  child: Container(
+                    height: MediaQuery.of(context).size.height / 23,
+                    width: MediaQuery.of(context).size.width / 1.7,
+                    decoration: const BoxDecoration(
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(20),
+                      ),
+                      gradient: LinearGradient(
+                        begin: Alignment.centerLeft,
+                        end: Alignment.centerRight,
+                        colors: [
+                          Color(0xffDA22FF),
+                          Color(0xff9733EE),
+                          Color(0xffDA22FF),
+                        ],
+                      ),
                     ),
-                    gradient: LinearGradient(
-                      begin: Alignment.centerLeft,
-                      end: Alignment.centerRight,
-                      colors: [
-                        Color(0xffDA22FF),
-                        Color(0xff9733EE),
-                        Color(0xffDA22FF),
-                      ],
-                    ),
-                  ),
-                  child: const Center(
-                    child: Text(
-                      "Done",
-                      style: TextStyle(
-                          color: Color(0xffe2e3e9),
-                          fontWeight: FontWeight.bold,
-                          fontSize: 12),
+                    child: const Center(
+                      child: Text(
+                        "Done",
+                        style: TextStyle(
+                            color: Color(0xffe2e3e9),
+                            fontWeight: FontWeight.bold,
+                            fontSize: 12),
+                      ),
                     ),
                   ),
                 ),
                 SizedBox(
                   width: MediaQuery.of(context).size.width / 30,
                 ),
-                Container(
-                  height: MediaQuery.of(context).size.height / 23,
-                  width: MediaQuery.of(context).size.width / 9,
-                  decoration: const BoxDecoration(
-                      borderRadius: BorderRadius.all(
-                        Radius.circular(20),
-                      ),
-                      color: Color(0xff2b2f54)),
-                  child: const Center(
-                      child: Icon(
-                    Icons.delete_outline,
-                    color: Color(0xff8899cc),
-                  )),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        PageTransition(
+                            type: PageTransitionType.fade, child: Matches()));
+                  },
+                  child: Container(
+                    height: MediaQuery.of(context).size.height / 23,
+                    width: MediaQuery.of(context).size.width / 9,
+                    decoration: const BoxDecoration(
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(20),
+                        ),
+                        color: Color(0xff2b2f54)),
+                    child: const Center(
+                        child: Icon(
+                      Icons.delete_outline,
+                      color: Color(0xff8899cc),
+                    )),
+                  ),
                 ),
               ],
             ),

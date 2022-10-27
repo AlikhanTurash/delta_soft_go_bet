@@ -1,9 +1,12 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gobet/utils/color_notifier.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
+import 'package:gobet/globals.dart';
 
 import '../../../forget_password/profile/wallet/wallet.dart';
 
@@ -41,9 +44,22 @@ class _SportsState extends State<Sports> {
   }
 
   late ColorNotifier notifire;
+
+  late Timer _everySecond;
+
+  @override
+  void initState() {
+    super.initState();
+    _everySecond = Timer.periodic(Duration(seconds: 1), (timer) {
+      setState(() {});
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     notifire = Provider.of<ColorNotifier>(context, listen: true);
+    String StringPoints = global.points.toString();
+
     return ScreenUtilInit(
       builder: (BuildContext context, Widget? child) {
         return Scaffold(
@@ -64,46 +80,36 @@ class _SportsState extends State<Sports> {
                     Row(
                       children: [
                         const Spacer(),
-                        GestureDetector(
-                          onTap: () {
-                            Navigator.push(
-                                context,
-                                PageTransition(
-                                    type: PageTransitionType.fade,
-                                    child: Wallet()));
-                          },
-                          child: Container(
-                            height: MediaQuery.of(context).size.height / 25,
-                            width: MediaQuery.of(context).size.width / 4.5,
-                            decoration: const BoxDecoration(
-                                color: Color(0xffC028F8),
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(15))),
-                            child: Center(
-                              child: Row(
-                                children: [
-                                  SizedBox(
-                                    width:
-                                        MediaQuery.of(context).size.width / 25,
-                                  ),
-                                  Padding(
-                                    padding:
-                                        const EdgeInsets.symmetric(vertical: 4),
-                                    child: Image.asset("image/uil-wallet.png"),
-                                  ),
-                                  SizedBox(
-                                    width:
-                                        MediaQuery.of(context).size.width / 100,
-                                  ),
-                                  const Text(
-                                    "500pts.",
-                                    style: TextStyle(
-                                        color: Colors.white,
-                                        fontSize: 11,
-                                        fontFamily: 'Gilroy Bold'),
-                                  ),
-                                ],
-                              ),
+                        Container(
+                          height: MediaQuery.of(context).size.height / 25,
+                          width: MediaQuery.of(context).size.width / 3.5,
+                          decoration: const BoxDecoration(
+                              color: Color(0xffC028F8),
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(15))),
+                          child: Center(
+                            child: Row(
+                              children: [
+                                SizedBox(
+                                  width: MediaQuery.of(context).size.width / 25,
+                                ),
+                                Padding(
+                                  padding:
+                                      const EdgeInsets.symmetric(vertical: 4),
+                                  child: Image.asset("image/uil-wallet.png"),
+                                ),
+                                SizedBox(
+                                  width:
+                                      MediaQuery.of(context).size.width / 100,
+                                ),
+                                Text(
+                                  '$StringPoints pts.',
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 11,
+                                      fontFamily: 'Gilroy Bold'),
+                                ),
+                              ],
                             ),
                           ),
                         ),
@@ -150,11 +156,6 @@ class _SportsState extends State<Sports> {
                             fillColor: const Color(0xff2f3a66),
                             prefixIcon: const Icon(
                               Icons.search,
-                              color: Color(0xff989bb2),
-                              size: 20,
-                            ),
-                            suffixIcon: const Icon(
-                              Icons.mic,
                               color: Color(0xff989bb2),
                               size: 20,
                             ),

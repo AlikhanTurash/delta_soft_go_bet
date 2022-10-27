@@ -1,8 +1,14 @@
+import 'dart:async';
+import 'dart:math';
+
 import 'package:flutter/material.dart';
+import 'package:gobet/sign_in/home_screen/inplay/congratulation_page.dart';
 import 'package:gobet/sign_in/home_screen/matches/comments.dart';
+import 'package:gobet/sign_in/home_screen/matches/matches.dart';
 import 'package:gobet/utils/color_notifier.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
+import 'package:gobet/globals.dart';
 
 import '../../../forget_password/profile/wallet/wallet.dart';
 import 'match_finish.dart';
@@ -16,12 +22,30 @@ class Live_match extends StatefulWidget {
 }
 
 class _Live_matchState extends State<Live_match> {
-  double val = 1;
+  double val = 100;
 
   late ColorNotifier notifire;
+
+  int bet = 100;
+
+  bool win = true;
+
+  late Timer _everySecond;
+
+  @override
+  void initState() {
+    super.initState();
+    _everySecond = Timer.periodic(Duration(seconds: 1), (timer) {
+      setState(() {});
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     notifire = Provider.of<ColorNotifier>(context, listen: true);
+
+    String StringPoints = global.points.toString();
+
     return Scaffold(
       // bottomNavigationBar: buildBottomNavigationBar(context),
       backgroundColor: notifire.getprimerycolor,
@@ -38,48 +62,43 @@ class _Live_matchState extends State<Live_match> {
                 ),
                 GestureDetector(
                     onTap: () {
-                      Navigator.pop(context);
+                      Navigator.push(
+                          context,
+                          PageTransition(
+                              type: PageTransitionType.fade, child: Matches()));
                     },
                     child: Icon(
                       Icons.arrow_back,
                       color: notifire.getwhite,
                     )),
                 const Spacer(),
-                GestureDetector(
-                  onTap: () {
-                    Navigator.push(
-                        context,
-                        PageTransition(
-                            type: PageTransitionType.fade, child: Wallet()));
-                  },
-                  child: Container(
-                    height: MediaQuery.of(context).size.height / 25,
-                    width: MediaQuery.of(context).size.width / 4.5,
-                    decoration: const BoxDecoration(
-                        color: Color(0xffC028F8),
-                        borderRadius: BorderRadius.all(Radius.circular(15))),
-                    child: Center(
-                      child: Row(
-                        children: [
-                          SizedBox(
-                            width: MediaQuery.of(context).size.width / 25,
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.symmetric(vertical: 4),
-                            child: Image.asset("image/uil-wallet.png"),
-                          ),
-                          SizedBox(
-                            width: MediaQuery.of(context).size.width / 100,
-                          ),
-                          const Text(
-                            "500pts.",
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 11,
-                                fontFamily: 'Gilroy Bold'),
-                          ),
-                        ],
-                      ),
+                Container(
+                  height: MediaQuery.of(context).size.height / 25,
+                  width: MediaQuery.of(context).size.width / 3.5,
+                  decoration: const BoxDecoration(
+                      color: Color(0xffC028F8),
+                      borderRadius: BorderRadius.all(Radius.circular(15))),
+                  child: Center(
+                    child: Row(
+                      children: [
+                        SizedBox(
+                          width: MediaQuery.of(context).size.width / 25,
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(vertical: 4),
+                          child: Image.asset("image/uil-wallet.png"),
+                        ),
+                        SizedBox(
+                          width: MediaQuery.of(context).size.width / 100,
+                        ),
+                        Text(
+                          '$StringPoints pts.',
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 11,
+                              fontFamily: 'Gilroy Bold'),
+                        ),
+                      ],
                     ),
                   ),
                 ),
@@ -473,8 +492,15 @@ class _Live_matchState extends State<Live_match> {
             SizedBox(
               height: MediaQuery.of(context).size.height / 15,
             ),
-            const Text(
-              "120.00pts.",
+            Text(
+              val.toStringAsFixed(0),
+              style: TextStyle(
+                  color: Color(0xfffaf9fb),
+                  fontSize: 25,
+                  fontWeight: FontWeight.bold),
+            ),
+            Text(
+              'pts.',
               style: TextStyle(
                   color: Color(0xfffaf9fb),
                   fontSize: 25,
@@ -484,6 +510,8 @@ class _Live_matchState extends State<Live_match> {
               activeColor: const Color(0xff4d7cfe),
               inactiveColor: const Color(0xff2b2f54),
               value: val,
+              min: 100,
+              max: 1000,
               onChanged: (value) {
                 setState(() {
                   val = value;
@@ -504,7 +532,7 @@ class _Live_matchState extends State<Live_match> {
                             TextStyle(color: Color(0xffa4baf0), fontSize: 11),
                       ),
                       Text(
-                        "750pts.",
+                        "100pts.",
                         style: TextStyle(
                             color: Color(0xffa4baf0),
                             fontSize: 15,
@@ -521,7 +549,7 @@ class _Live_matchState extends State<Live_match> {
                             TextStyle(color: Color(0xffa4baf0), fontSize: 11),
                       ),
                       Text(
-                        "24535pts.",
+                        "1 000pts.",
                         style: TextStyle(
                             color: Color(0xffa4baf0),
                             fontSize: 15,
@@ -542,10 +570,13 @@ class _Live_matchState extends State<Live_match> {
                   GestureDetector(
                     onTap: () {
                       Navigator.push(
-                          context,
-                          PageTransition(
-                              type: PageTransitionType.fade,
-                              child: Finish_match()));
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => isWon()
+                                ? Congratulation_page(val)
+                                : Finish_match(),
+                            settings: RouteSettings(arguments: val)),
+                      );
                     },
                     child: Container(
                       height: MediaQuery.of(context).size.height / 23,
@@ -564,13 +595,32 @@ class _Live_matchState extends State<Live_match> {
                           ],
                         ),
                       ),
-                      child: const Center(
-                        child: Text(
-                          "Bet 120pts.",
-                          style: TextStyle(
-                              color: Color(0xffe2e3e9),
-                              fontWeight: FontWeight.bold,
-                              fontSize: 12),
+                      child: Center(
+                        child: Row(
+                          children: [
+                            SizedBox(width: 90),
+                            Text(
+                              "Bet ",
+                              style: TextStyle(
+                                  color: Color(0xffe2e3e9),
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 12),
+                            ),
+                            Text(
+                              val.toStringAsFixed(0),
+                              style: TextStyle(
+                                  color: Color(0xffe2e3e9),
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 12),
+                            ),
+                            Text(
+                              "pts.",
+                              style: TextStyle(
+                                  color: Color(0xffe2e3e9),
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 12),
+                            ),
+                          ],
                         ),
                       ),
                     ),
@@ -598,5 +648,19 @@ class _Live_matchState extends State<Live_match> {
         ),
       ),
     );
+  }
+
+  isWon() {
+    var random = Random();
+    int outcome = random.nextInt(2);
+    win = true;
+    if (outcome == 1) {
+      win = true;
+      print('1');
+    } else {
+      win = false;
+      print('0');
+    }
+    return win;
   }
 }

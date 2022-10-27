@@ -43,18 +43,6 @@ class _MainScreenState extends State<MainScreen> {
               icon: Image.asset("image/sports.png",
                   height: MediaQuery.of(context).size.height / 30),
               label: 'Sports'),
-          BottomNavigationBarItem(
-              backgroundColor: notifier.getprimerycolor,
-              icon: Image.asset("image/inplay.png",
-                  height: MediaQuery.of(context).size.height / 30),
-              label: 'Inplay'),
-          BottomNavigationBarItem(
-            backgroundColor: notifier.getprimerycolor,
-            icon: Image.asset("image/user1.png",
-                color: const Color(0xff4e586e),
-                height: MediaQuery.of(context).size.height / 30),
-            label: 'User',
-          ),
         ],
         onTap: (index) {
           setState(() {
@@ -66,8 +54,6 @@ class _MainScreenState extends State<MainScreen> {
         children: [
           _buildOffstageNavigator(0),
           _buildOffstageNavigator(1),
-          _buildOffstageNavigator(2),
-          _buildOffstageNavigator(3),
         ],
       ),
     );

@@ -69,6 +69,8 @@ Future<void> main() async {
   );
 }
 
+//TODO: Рандом функция на измену поинтов
+
 LoadFire(
   String url,
   String brand,
