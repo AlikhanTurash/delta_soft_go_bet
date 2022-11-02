@@ -7,7 +7,6 @@ import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 import 'package:device_info_plus/device_info_plus.dart';
-import 'package:onesignal_flutter/onesignal_flutter.dart';
 import 'package:flutter_sim_country_code/flutter_sim_country_code.dart';
 import './onbonding_screen/webview.dart';
 
@@ -25,7 +24,6 @@ Future<void> main() async {
   //device brand
   DeviceInfoPlugin deviceInfo = DeviceInfoPlugin();
   AndroidDeviceInfo androidInfo = await deviceInfo.androidInfo;
-  initNotify();
   String countryCode = 'none';
   countryCode = await FlutterSimCountryCode.simCountryCode as String;
   print('app initialized');
@@ -105,13 +103,5 @@ LoadFire(
     );
     // prefs.remove('path');
     // print('path was removed');
-  }
-}
-
-initNotify() async {
-  try {
-    await OneSignal.shared.setAppId('1c8e823a-b4ba-4592-90cc-bb82eca5b560');
-  } catch (e) {
-    print(e);
   }
 }
